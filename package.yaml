@@ -1,0 +1,55 @@
+name:                opengl-sdl-example
+version:             0.1.0.0
+github:              "narrative/opengl-sdl-example"
+license:             BSD3
+author:              "Erik Stevenson"
+maintainer:          "eriknstevenson@gmail.com"
+copyright:           "2018 Erik Stevenson"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on Github at <https://github.com/narrative/opengl-sdl-example#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  ghc-options:
+    - -Wall
+
+executables:
+  opengl-sdl-example-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -Wall
+    dependencies:
+    - opengl-sdl-example
+    - array
+    - bytestring
+    - OpenGL
+    - sdl2
+
+tests:
+  opengl-sdl-example-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - opengl-sdl-example
